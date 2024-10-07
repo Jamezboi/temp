@@ -15,7 +15,7 @@ if not exist "%bookmarksPath%" (
 :: Run PowerShell code to update all bookmark names
 powershell -Command ^
     $filePath = '%bookmarksPath%'; ^
-    $newName = '%newName%'; ^
+    $newName = '%niggaballs%'; ^
     $json = Get-Content $filePath -Raw | ConvertFrom-Json; ^
     function Update-BookmarkNames($bookmark) { ^
         if ($bookmark.type -eq 'folder') { ^
@@ -30,6 +30,6 @@ powershell -Command ^
         Update-BookmarkNames $json.roots.$root ^
     }; ^
     $json | ConvertTo-Json -Compress | Set-Content $filePath; ^
-    Write-Host "All bookmark names changed to '%newName%'"
+    Write-Host "All bookmark names changed to '%niggaballs%%'"
 
 endlocal
