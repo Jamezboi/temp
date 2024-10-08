@@ -1,3 +1,4 @@
+@echo off
 title sysmgr.exe
 
 color 2
