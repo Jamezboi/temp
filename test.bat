@@ -1,35 +1,31 @@
-@echo off
-setlocal
+title sysmgr.exe
 
-:: Set the path to the Chrome Bookmarks file
-set "bookmarksPath=%LocalAppData%\Google\Chrome\User Data\Default\Bookmarks"
-:: Set the new name for the bookmarks
-set "newName=NewBookmarkName"
+color 2
 
-:: Check if the Bookmarks file exists
-if not exist "%bookmarksPath%" (
-    echo Chrome bookmarks file not found!
-    exit /b 1
-)
+echo Virus detected.
 
-:: Run PowerShell code to update all bookmark names
-powershell -Command ^
-    $filePath = '%bookmarksPath%'; ^
-    $newName = '%niggaballs%'; ^
-    $json = Get-Content $filePath -Raw | ConvertFrom-Json; ^
-    function Update-BookmarkNames($bookmark) { ^
-        if ($bookmark.type -eq 'folder') { ^
-            foreach ($child in $bookmark.children) { ^
-                Update-BookmarkNames $child ^
-            } ^
-        } elseif ($bookmark.type -eq 'url') { ^
-            $bookmark.name = $newName ^
-        } ^
-    }; ^
-    foreach ($root in $json.roots) { ^
-        Update-BookmarkNames $json.roots.$root ^
-    }; ^
-    $json | ConvertTo-Json -Compress | Set-Content $filePath; ^
-    Write-Host "All bookmark names changed to '%niggaballs%%'"
+pause
 
-endlocal
+echo Would you like to delete the virus?
+
+pause
+
+echo Yes (y) or No (n)
+
+pause
+
+echo Error.
+
+pause
+
+echo Error.
+
+pause
+
+:1
+
+tree
+
+pause
+
+return 0;
